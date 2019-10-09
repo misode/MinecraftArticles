@@ -27,6 +27,7 @@ articles = {
 site = "https://www.minecraft.net/en-us/article/"
 bodyStartDetect = 'end-with-block'
 bodyEndDetect = '<p>Report bugs here:</p>'
+bodyEndDetect2 = 'Report bugs here:'
 dateStartDetect = 'pubDate" data-value="'
 dateEndDetect = 'T'
 
@@ -38,6 +39,8 @@ def loadArticle(article):
         bodyStartIndex = html.find(bodyStartDetect)
         bodyStartIndex = html.find("<p>", bodyStartIndex)
         bodyEndIndex = html.find(bodyEndDetect, bodyStartIndex)
+        if bodyEndIndex == -1:
+            bodyEndIndex = html.find(bodyEndDetect2, bodyStartIndex)
         body = html[bodyStartIndex:bodyEndIndex]
 
         dateStartIndex = html.find(dateStartDetect) + len(dateStartDetect)
