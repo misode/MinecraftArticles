@@ -21,7 +21,9 @@ articles = {
     "1.14.3-pre4":  "minecraft-1-14-3-pre-release-1",
     "1.14.3":       "minecraft-java-edition-1-14-3",
     "1.14.4-pre7":  "minecraft-1-14-4-pre-release-1",
-    "1.14.4":       "minecraft-java-1-14-4-released"
+    "1.14.4":       "minecraft-java-1-14-4-released",
+    "1.15-pre1":    "minecraft-1-15-pre-release-1",
+    "1.15":         "buzzy-bees-out-now-in-java"
 }
 
 site = "https://www.minecraft.net/en-us/article/"
