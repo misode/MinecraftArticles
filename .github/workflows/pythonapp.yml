@@ -4,6 +4,7 @@ on:
   push:
     paths:
     - 'articles.json'
+    - 'scraper.py'
 
 jobs:
   update:

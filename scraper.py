@@ -9,6 +9,8 @@ bodyStartDetect = 'end-with-block' # minecraft.net
 bodyStartDetect2 = '<article class="single-post post-content">' # mojang.com
 bodyEndDetect = '<p>Report bugs here:</p>'
 bodyEndDetect2 = 'Report bugs here:'
+bodyEndDetect3 = '<div class="article-attribution-container"' # minecraft.net
+bodyEndDetect4 = '</article>' # mojang.com
 
 dateStartDetect = 'pubDate" data-value="' # minecraft.net
 dateStartDetect2 = 'Posted on ' # mojang.com
@@ -29,6 +31,11 @@ def loadArticle(url):
         bodyEndIndex = html.find(bodyEndDetect, bodyStartIndex)
         if bodyEndIndex == -1:
             bodyEndIndex = html.find(bodyEndDetect2)
+        if bodyEndIndex == -1:
+            bodyEndIndex = html.find(bodyEndDetect3)
+        if bodyEndIndex == -1:
+            bodyEndIndex = html.find(bodyEndDetect4) + len(bodyEndDetect4)
+        
 
         body = html[bodyStartIndex:bodyEndIndex]
 
