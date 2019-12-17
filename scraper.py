@@ -1,61 +1,55 @@
 import io
 import itertools
+import json
 import urllib.request
 import urllib.error
 import html2text
 
-articles = {
-    "1.12-pre2":    "minecraft-112-pre-release-2",
-    "1.12-pre5":    "minecraft-112-pre-release-3",
-    "1.12-pre7":    "minecraft-112-pre-release-6",
-    "1.12":         "world-color-released",
-    "1.12.1":       "minecraft-1121-released",
-    "1.12.2":       "minecraft-1122-released",
-    "1.13":         "update-aquatic-out-java",
-    "1.14-pre7":    "minecraft-1-14-4-pre-release-1",
-    "1.14":         "village---pillage-out-java-",
-    "1.14.1-pre2":  "minecraft-1-14-1-pre-release-1",
-    "1.14.1":       "minecraft-java-edition-1-14-1",
-    "1.14.2-pre4":  "minecraft-1-14-2-pre-release-1",
-    "1.14.2":       "minecraft-java-edition-1-14-2",
-    "1.14.3-pre4":  "minecraft-1-14-3-pre-release-1",
-    "1.14.3":       "minecraft-java-edition-1-14-3",
-    "1.14.4-pre7":  "minecraft-1-14-4-pre-release-1",
-    "1.14.4":       "minecraft-java-1-14-4-released",
-    "1.15-pre1":    "minecraft-1-15-pre-release-1",
-    "1.15":         "buzzy-bees-out-now-in-java"
-}
-
-site = "https://www.minecraft.net/en-us/article/"
-bodyStartDetect = 'end-with-block'
+bodyStartDetect = 'end-with-block' # minecraft.net
+bodyStartDetect2 = '<article class="single-post post-content">' # mojang.com
 bodyEndDetect = '<p>Report bugs here:</p>'
 bodyEndDetect2 = 'Report bugs here:'
-dateStartDetect = 'pubDate" data-value="'
-dateEndDetect = 'T'
 
-def loadArticle(article):
+dateStartDetect = 'pubDate" data-value="' # minecraft.net
+dateStartDetect2 = 'Posted on ' # mojang.com
+dateEndDetect = 'T' # minecraft.net
+dateEndDetect2 = 'by' # mojang.com
+
+def loadArticle(url):
     try:
-        response = urllib.request.urlopen(site + article);
+        response = urllib.request.urlopen(url);
         html = response.read().decode("utf-8")
 
         bodyStartIndex = html.find(bodyStartDetect)
-        bodyStartIndex = html.find("<p>", bodyStartIndex)
+        if bodyStartIndex == -1:
+            bodyStartIndex = html.find(bodyStartDetect2)
+        else:
+            bodyStartIndex = html.find("<p>", bodyStartIndex)
+
         bodyEndIndex = html.find(bodyEndDetect, bodyStartIndex)
         if bodyEndIndex == -1:
-            bodyEndIndex = html.find(bodyEndDetect2, bodyStartIndex)
+            bodyEndIndex = html.find(bodyEndDetect2)
+
         body = html[bodyStartIndex:bodyEndIndex]
 
-        dateStartIndex = html.find(dateStartDetect) + len(dateStartDetect)
-        dateEndIndex = html.find(dateEndDetect, dateStartIndex)
-        date = html[dateStartIndex:dateEndIndex]
+        dateStartIndex = html.find(dateStartDetect)
+        dateEndIndex = dateStartIndex
+        if dateStartIndex == -1:
+            dateStartIndex = html.find(dateStartDetect2) + len(dateStartDetect2)
+            dateEndIndex = html.find(dateEndDetect2, dateStartIndex)
+        else:
+            dateStartIndex += len(dateStartDetect)
+            dateEndIndex = html.find(dateEndDetect, dateStartIndex)
+        date = html[dateStartIndex:dateEndIndex].strip()
 
         return (date, body)
     except urllib.error.URLError as e:
         return None
 
-def scrapeArticle(name, article):
-    article = loadArticle(article)
+def scrapeArticle(name, url):
+    article = loadArticle(url)
     if article is None:
+        print(f"Invalid article url {url}")
         return
 
     (date, body) = article
@@ -68,9 +62,7 @@ def scrapeArticle(name, article):
         f.write(text)
         f.write('\n')
 
-for (year, week) in itertools.product(range(17, 20), range(1, 54)):
-    name = f"{year}w{week:02}a"
-    scrapeArticle(name, "minecraft-snapshot-" + name)
-
-for name, article in articles.items():
-    scrapeArticle(name, article)
+with open('articles.json', 'r') as f:
+    articles = json.load(f)
+    for name, url in articles.items():
+        scrapeArticle(name, url)

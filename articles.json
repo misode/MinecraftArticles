@@ -79,9 +79,11 @@
     "18w30a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-18w30a",
     "18w31a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-18w31a",
     "18w32a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-18w32a",
-    "18w33a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-18w33a",
     "1.13-pre1":    "https://www.minecraft.net/en-us/article/minecraft-113-pre-release",
     "1.13":         "https://www.minecraft.net/en-us/article/update-aquatic-out-java",
+    "18w33a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-18w33a",
+    "1.13.1":       "https://www.minecraft.net/en-us/article/minecraft-1131-released",
+    "1.13.2":       "https://www.minecraft.net/en-us/article/minecraft-java-edition-1132",
 
     "18w43a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-18w43a",
     "18w44a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-18w44a",
@@ -127,5 +129,6 @@
     "19w46a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-19w46a",
     "1.15-pre1":    "https://www.minecraft.net/en-us/article/minecraft-1-15-pre-release-1",
     "1.15":         "https://www.minecraft.net/en-us/article/buzzy-bees-out-now-in-java",
+    "1.15.1-pre1":  "https://www.minecraft.net/en-us/article/minecraft-1-15-1-pre-release-1",
     "1.15.1":       "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-15-1"
 }

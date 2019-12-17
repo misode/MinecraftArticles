@@ -1,8 +1,9 @@
-name: Python application
+name: Scraper
 
 on:
-  schedule:
-    - cron: '0 20 * * *'
+  push:
+    paths:
+    - 'articles.json'
 
 jobs:
   update:
