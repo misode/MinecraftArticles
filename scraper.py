@@ -7,6 +7,7 @@ import html2text
 
 bodyStartDetect = 'end-with-block' # minecraft.net
 bodyStartDetect2 = '<article class="single-post post-content">' # mojang.com
+bodyStartDetect3 = 'data-emptytext="Content Fragment"' # minecraft.net
 bodyEndDetect = '<p>Report bugs here:</p>'
 bodyEndDetect2 = 'Report bugs here:'
 bodyEndDetect3 = '<div class="article-attribution-container"' # minecraft.net
@@ -23,6 +24,8 @@ def loadArticle(url):
         html = response.read().decode("utf-8")
 
         bodyStartIndex = html.find(bodyStartDetect)
+        if bodyStartIndex == -1:
+            bodyStartIndex = html.find(bodyStartDetect3)
         if bodyStartIndex == -1:
             bodyStartIndex = html.find(bodyStartDetect2)
         else:
