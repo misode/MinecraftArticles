@@ -207,5 +207,6 @@
     "1.16-pre1":    "https://www.minecraft.net/en-us/article/minecraft-1-16-pre-release-1",
     "1.16-pre3":    "https://www.minecraft.net/en-us/article/minecraft-1-16-pre-release-3",
     "1.16-pre6":    "https://www.minecraft.net/en-us/article/minecraft-1-16-pre-release-6",
-    "1.16-rc1":     "https://www.minecraft.net/en-us/article/minecraft-1-16-release-candidate"
+    "1.16-rc1":     "https://www.minecraft.net/en-us/article/minecraft-1-16-release-candidate",
+    "1.16":         "https://www.minecraft.net/en-us/article/nether-update-java"
 }
