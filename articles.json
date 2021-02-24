@@ -214,5 +214,24 @@
     "20w29a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-20w29a",
     "20w30a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-20w30a",
     "1.16.2-pre1":  "https://www.minecraft.net/en-us/article/minecraft-1-16-2-pre-release-1",
-    "1.16.2-pre2":  "https://www.minecraft.net/en-us/article/minecraft-1-16-2-pre-release-2"
+    "1.16.2-pre2":  "https://www.minecraft.net/en-us/article/minecraft-1-16-2-pre-release-2",
+    "1.16.2":       "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-16-2",
+    "1.16.3-rc1":   "https://www.minecraft.net/en-us/article/minecraft-1-16-3-release-candidate-1",
+    "1.16.3":       "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-16-3",
+    "1.16.4-pre1":  "https://www.minecraft.net/en-us/article/minecraft-1-16-4-pre-release-1",
+    "1.16.4-pre2":  "https://www.minecraft.net/en-us/article/minecraft-1-16-4-pre-release-2",
+    "1.16.4-rc1":   "https://www.minecraft.net/en-us/article/minecraft-1-16-4-release-candidate-1",
+    "1.16.4":       "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-16-4",
+    "1.16.5-rc1":   "https://www.minecraft.net/en-us/article/minecraft-1-16-5-release-candidate-1",
+    "1.16.5":       "https://www.minecraft.net/en-us/article/minecraft-java-edition-1-16-5",
+
+    "20w45a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-20w45a",
+    "20w46a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-20w46a",
+    "20w48a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-20w48a",
+    "20w49a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-20w49a",
+    "20w51a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-20w51a",
+    "21w03a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-21w03a",
+    "21w05a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-21w05a",
+    "21w06a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-21w06a",
+    "21w07a":       "https://www.minecraft.net/en-us/article/minecraft-snapshot-21w07a"
 }
