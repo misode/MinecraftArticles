@@ -75,4 +75,6 @@ def scrapeArticle(name, url):
 with open('articles.json', 'r') as f:
     articles = json.load(f)
     for name, url in articles.items():
+        if url.startswith('https://www.mojang.com'):
+            continue
         scrapeArticle(name, url)
